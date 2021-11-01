@@ -16,7 +16,9 @@ function AddTodo() {
   const addingTodo = (e) => {
     e.preventDefault();
 
-    dispatch(addTodo(todoItem));
+    if( title!== ""){
+       dispatch(addTodo(todoItem));
+    }
     setTitle("");
   };
 
