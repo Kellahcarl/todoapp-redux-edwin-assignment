@@ -6,22 +6,24 @@ function Todos() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   return (
-    <div>
+    <div >
       {todos.map((todo) => (
-        <>
+        <div className={`todo-item ${todo.completed ? "completed" : ""}`}>
           <h4
             key={todo.id}
             style={{ textDecoration: todo.is_complete ? "line-through" : "" }}
           >
             {todo.title}
           </h4>
-          <div style={{ display: "flex" }}>
-            <button onClick={() => dispatch(removeTodo(todo.id))}>x</button>
-            <button onClick={() => dispatch(markTodoAsComplete(todo.id))}>
+          <div className={`todo-item`} >
+            <button className="trash-btn" onClick={() => dispatch(removeTodo(todo.id))}>
+              <i className="fas fa-trash"></i>
+            </button>
+            <button className="complete-btn" onClick={() => dispatch(markTodoAsComplete(todo.id))}>
             {todo.is_complete ? "completed" : "not completed"}
             </button>
           </div>
-        </>
+        </div>
       ))}
     </div>
   );

@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="App">
       <AddTodo />
-      <Todos />
+      <div className="todo">
+        <Todos />
+      </div>
     </div>
   );
 }
